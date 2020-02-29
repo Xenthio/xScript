@@ -10,7 +10,7 @@ import java.util.Arrays;
 import javax.swing.text.*;
 
 
-public class Test extends JFrame {
+public class xScript extends JFrame {
 	public String logic = "(\\\\W)*(>|<|>=|<=|!=|eq|==|=)";
 	GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 	File f = new File("/bin");
@@ -24,7 +24,7 @@ public class Test extends JFrame {
 	private String templol = templol1.replace("|[", "");
 	public String commands = "(\\W)*(echo|bash|ls|let|if|fi|" + templol + ")";
 	
-    public Test () {
+    public xScript () {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(400, 400);
         setLocationRelativeTo(null);
@@ -177,7 +177,7 @@ public class Test extends JFrame {
     
     public static void main (String[] args) {
 
-        new Test();
+        new xScript();
     }
     
     private int findLastNonWordChar (String text, int index) {
