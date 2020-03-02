@@ -160,6 +160,7 @@ public class xScript extends JFrame implements ActionListener {
         menuBar.add(editMenu);
 
         // put the menubar on the frame
+        
         setJMenuBar(menuBar);
         txt = new JTextPane(doc);
         txt.setCaretColor(Color.white);
