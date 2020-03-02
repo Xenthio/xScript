@@ -160,6 +160,7 @@ public class xScript extends JFrame implements ActionListener {
         menuBar.add(editMenu);
 
         // put the menubar on the frame
+        
         setJMenuBar(menuBar);
         txt = new JTextPane(doc);
         txt.setCaretColor(Color.white);
@@ -193,6 +194,7 @@ public class xScript extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		ProcessBuilder processBuilder = new ProcessBuilder();
 		String i = e.getActionCommand();
 		if (i == "Open") {
 			JFileChooser fileChooser = new JFileChooser();
@@ -229,6 +231,8 @@ public class xScript extends JFrame implements ActionListener {
 						System.out.println(txt.getText());
 						writer.print(txt.getText());
 						writer.close();
+						processBuilder.command("chmod", "+x", selectedFile.getAbsolutePath());
+						processBuilder.start();
 						updateTitle(selectedFile.getName());
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
@@ -242,11 +246,16 @@ public class xScript extends JFrame implements ActionListener {
 					System.out.println(txt.getText());
 					writer.print(txt.getText());
 					writer.close();
+					processBuilder.command("chmod", "+x", indoc);
+					processBuilder.start();
 					updateTitle(filedoc.getName());
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (UnsupportedEncodingException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
